@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Email OTP</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        /* text-align: center; */
+        /* margin-top: 50px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(30, 140, 140);
+      }
+      .container {
+        width: 30rem;
+        margin: auto;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        text-align: center;
+      }
+      button {
+        width: 60%;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Email Verification</h2>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="text" id="otpCode" placeholder="Enter OTP" required />
+      <button id="confirmOtp">Confirm Email</button>
+      <button id="resendOtp">Resend OTP</button>
+    </div>
+
+  
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script   src="./js/confirmEmail.js"></script>
+  </body>
+</html>

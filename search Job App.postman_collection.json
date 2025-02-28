@@ -1,0 +1,1651 @@
+{
+	"info": {
+		"_postman_id": "f6fa4b0b-b7f2-407e-a224-c9b95c893481",
+		"name": "search Job App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37252643"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"lolo nagi\",\r\n    \"email\": \"basem.software@yahoo.com\",\r\n    \"password\":\"Actionman2030\",\r\n    \"confirmationPassword\":\"Actionman2030\",\r\n    \"gender\":\"male\",\r\n    \"mobileNumber\":\"01555570468\",\r\n    \"DOB\": \"1990-08-05\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/signup",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept-encoding": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bmr.audi@gmail.com\",\r\n    \"password\": \"Actionman2030\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/login",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enable 2step verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bmr.audi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/enable_2step?action=disable",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"enable_2step"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "disable"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bmr.audi@gmail.com\",\r\n    \"otpCode\":\"3331\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/confirm-login",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"confirm-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login with gmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idToken\":\"{{google_IdToken}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/loginWithGmail",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"loginWithGmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"basem.software@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/forgetPassword",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"basem.software@yahoo.com\",\r\n    \"codeOtp\":\"9835\",\r\n    \"password\":\"Actionman2030\",\r\n    \"confirmationPassword\":\"Actionman2030\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/resetPassword",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAyNjYxMTMsImV4cCI6MTc0MDI2OTcxM30.SVCys12TAwCo9RDwL3aPAhCkTfc4HxLG9YFQU9r_DPs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/refreshToken",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"refreshToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhc2VtLnNvZnR3YXJlQHlhaG9vLmNvbSIsImlhdCI6MTczNTIxNTU3N30.iImvGSuL2egfmIVsyWp_Cvfmg0titeXHBhDDFLG9n6Q",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codeOtp\":\"4112\",\r\n    \"email\":\"bmr.audi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/confirmEmail",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"confirmEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resend otp",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"bmr.audi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/auth/resendOtp",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"auth",
+								"resendOtp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "user profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzODQwOTEsImV4cCI6MTc0MDM4NzY5MX0.LlSsVCVRq-HDOT66DahfzViSoc6icLWdQ4noBtkIwFk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dashboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzkxMzQ3NjAxYjQ2MWQxNjc1Mzc3NDIiLCJpYXQiOjE3Mzg1MDE1MjcsImV4cCI6MTczODUwNTEyN30.Me9tMm0gEwkmyolfN7OibBVTrjb_aVOMjFJIvHchjhQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/admin/dashboard",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"admin",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzMzY0MjgsImV4cCI6MTc0MDM0MDAyOH0.0-MVT3ygq9_025QJTdixGsyJ8WVd-_Bt-JW5IYQshFQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Basem\",\r\n    \"lastName\":\"Mouner\",\r\n    \"gender\":\"male\",\r\n    \"mobileNumber\":\"01555570468\",\r\n    \"DOB\":\"5/8/1990\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile  image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzNDMwMDUsImV4cCI6MTc0MDM0NjYwNX0.ZYc4O-h0Ctx0JlsAkdgIujrPqAhcIQRw1i5L8YL2iK8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/basem/Downloads/outdoor-woman.jpg",
+										"/C:/Users/basem/Downloads/dzuwteuewexolt6wjofy.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/image",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete profile image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzNDMwMDUsImV4cCI6MTc0MDM0NjYwNX0.ZYc4O-h0Ctx0JlsAkdgIujrPqAhcIQRw1i5L8YL2iK8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/image",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add friendRequest",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzkxMzQ3NjAxYjQ2MWQxNjc1Mzc3NDIiLCJpYXQiOjE3Mzk3MDQ4OTcsImV4cCI6MTczOTcwODQ5N30.XjRrUaK0PqnoVHxuBtXWTXlDx7cSLKHDT_FzQlvIyFQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/addFriendRequest/679771bfa5babd1b5086535b",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"addFriendRequest",
+								"679771bfa5babd1b5086535b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept friend Request",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzk3NzFiZmE1YmFiZDFiNTA4NjUzNWIiLCJpYXQiOjE3Mzk3MDUxNzMsImV4cCI6MTczOTcwODc3M30.QzdsSBlwnnRD-9ARtqg-GIWXd67xqHbW7ZUf3WCAHIs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/acceptFriendRequest/67b1ca9b1d96285670ac9a04",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"acceptFriendRequest",
+								"67b1ca9b1d96285670ac9a04"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile  image Cover",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzNDY2OTQsImV4cCI6MTc0MDM1MDI5NH0.671fRZjsRB-LABiz7LVO3xCWFV5qxpDocqsurkHtOLc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/basem/Downloads/upscale-face-1.jpg",
+										"/C:/Users/basem/Downloads/outdoor-woman.jpg",
+										"/C:/Users/basem/Downloads/dzuwteuewexolt6wjofy.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/image/cover",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"image",
+								"cover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete specific image cover",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzNDY2OTQsImV4cCI6MTc0MDM1MDI5NH0.671fRZjsRB-LABiz7LVO3xCWFV5qxpDocqsurkHtOLc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"public_id\":\"searchJob_App/user/67ba52151541fac81cd57a33/coverImages/qbuflzzx6a4xg6a7efvr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/image/cover",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"image",
+								"cover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete acount",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzODQwOTEsImV4cCI6MTc0MDM4NzY5MX0.LlSsVCVRq-HDOT66DahfzViSoc6icLWdQ4noBtkIwFk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/deleteProfile",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"deleteProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore Profile request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzODU3MTIsImV4cCI6MTc0MDM4OTMxMn0.wQxinZKp_IGdiWx5yBToWaxdzZFRDDVzdA3pQNufDWM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"bmr.audi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/restoreProfileRequest",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"restoreProfileRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore Profile Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzODU3MTIsImV4cCI6MTc0MDM4OTMxMn0.wQxinZKp_IGdiWx5yBToWaxdzZFRDDVzdA3pQNufDWM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"bmr.audi@gmail.com\",\r\n    \"otpCode\":\"5162\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}users/restoreProfileAccount",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}users"
+							],
+							"path": [
+								"restoreProfileAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile  identity",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzk1NTZkZDJjYjI2MTMwOTk2MmY3NWEiLCJpYXQiOjE3Mzc4ODcwNTcsImV4cCI6MTczNzg5MDY1N30.y6p6KZSJb0OTiddlOBXzqSuPWTkq4jNoj0AB0cI-O2I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/basem/Desktop/11.png",
+										"/C:/Users/basem/Desktop/77.jpg",
+										"/C:/Users/basem/Desktop/78.jpg",
+										"/C:/Users/basem/Desktop/79.jpg",
+										"/C:/Users/basem/Desktop/80.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/identity",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"identity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzNDI5MzksImV4cCI6MTc0MDM0NjUzOX0.g_f02o6fla7H9HxwtgJyqIY_flfUOjCyFViB5ylp25Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"Actionman2040\",\r\n    \"password\":\"Actionman2030\",\r\n    \"confirmationPassword\":\"Actionman2030\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/password",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc0ZmM3MTg3YTc4NDFjMjhlYTQ0YTkiLCJpc0xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzM1NzI1NTUzLCJleHAiOjE3MzU3MjkxNTN9.JECyfJYT6ivhTpNi0dxwhFwdFT1C99filV2KoPLc-nA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bmr.audi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/updateEmail",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"updateEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "replace Email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzkxMzQ3NjAxYjQ2MWQxNjc1Mzc3NDIiLCJpYXQiOjE3Mzc4MTUzOTYsImV4cCI6MTczNzgxODk5Nn0.UpfDgcjJpWCESE-MyU8YQarBtFr8_k0W21KHkymxabE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldEmailCode\":\"1115\",\r\n    \"newEmailCode\":\"2548\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/replaceEmail",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"replaceEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc0ZmM3MTg3YTc4NDFjMjhlYTQ0YTkiLCJpc0xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzM1NzI1NTUzLCJleHAiOjE3MzU3MjkxNTN9.JECyfJYT6ivhTpNi0dxwhFwdFT1C99filV2KoPLc-nA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"basem.software@yahoo.com\",\r\n    \"password\":\"Actionman203040\",\r\n    \"otp\":\"YX4TG\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/resetPassword",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc0ZmM3MTg3YTc4NDFjMjhlYTQ0YTkiLCJpc0xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzM1NzI1NTUzLCJleHAiOjE3MzU3MjkxNTN9.JECyfJYT6ivhTpNi0dxwhFwdFT1C99filV2KoPLc-nA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\":\"basem.software@yahoo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/forgetPassword",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "share user profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzMzkzMTAsImV4cCI6MTc0MDM0MjkxMH0.X4I2xPcXixkr9r2Ilm0ftNxV_s7SGj1Zo9s5taljJdI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/users/profile/67bb8042b6503193bef530bb",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"67bb8042b6503193bef530bb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chat",
+			"item": [
+				{
+					"name": "oneConversation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "hr eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JiODA0MmI2NTAzMTkzYmVmNTMwYmIiLCJpYXQiOjE3NDA1ODk5NzUsImV4cCI6MTc0MDU5MzU3NX0.fSZ_hjkBVxl1yuaUXJnfUrJEN2iJvwub7DuCCJM5yv0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/chat/67bda887226027829e3218be",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"chat",
+								"67bda887226027829e3218be"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "add company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzOTc4MTgsImV4cCI6MTc0MDQwMTQxOH0.BrYaPtRYkWz5KnYPHEyr-o8d_0kSjcE_rlj8vmQiy44",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"BMR travel\",\r\n    \"companyEmail\":\"bmr.audi@gmail.com\",\r\n    \"description\":\"you can booking from here all world\",\r\n    \"industry\":\"travel\",\r\n    \"numberOfEmployees\":[10,50]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update company",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MTA5MzUsImV4cCI6MTc0MDQxNDUzNX0.CgTlhM5NNnZq1-uVbjhleymyNnLZ3PGxb4XdtxuStCg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\":\"BMR traviling hero\",\r\n    \"description\":\"you can booking from here all world\",\r\n    \"industry\":\"travel and booking\",\r\n    \"numberOfEmployees\":[10,20]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDAzOTc4MTgsImV4cCI6MTc0MDQwMTQxOH0.BrYaPtRYkWz5KnYPHEyr-o8d_0kSjcE_rlj8vmQiy44",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/67bc519738f54c16cf0b078e",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"67bc519738f54c16cf0b078e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "related Job Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA1NjAwMzgsImV4cCI6MTc0MDU2MzYzOH0.5-mTO9EHrdpD90mSqdRC8PMjXhy4oyFS-bnn04iRTTU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/relatedJob/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"relatedJob",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA1NjA2OTYsImV4cCI6MTc0MDU2NDI5Nn0.Pwr7i7lTcHbauNTJ5IZq4Sil7Lt8hMEbmBwKj2feJJQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for company by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MDgwMDEsImV4cCI6MTc0MDQxMTYwMX0.zAe4XfL41nvJvOtPNvvwuMAYqVa7LlIBQYhbJjCpsCM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/search?companyName=BMR travel",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"search"
+							],
+							"query": [
+								{
+									"key": "companyName",
+									"value": "BMR travel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export Job Applications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "hr eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JiODA0MmI2NTAzMTkzYmVmNTMwYmIiLCJpYXQiOjE3NDA1OTY5NTcsImV4cCI6MTc0MDYwMDU1N30.9fa96tOQomP8KrUh7Qk_c0YVIf3f6fL1BhDFXhUq74E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2025-02-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/exportJobApplications/67bc5e2624675d89624c0c8f/",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"exportJobApplications",
+								"67bc5e2624675d89624c0c8f",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload logo image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MDgwMDEsImV4cCI6MTc0MDQxMTYwMX0.zAe4XfL41nvJvOtPNvvwuMAYqVa7LlIBQYhbJjCpsCM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/basem/Downloads/tzhwxie4tgiyqioaoapr.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/logo/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"logo",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete logo image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MTI2NDgsImV4cCI6MTc0MDQxNjI0OH0.R0-h3xgSv4kufeFqfKUsOrF38ZbEpEUy9-B0XX11v8g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/logo/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"logo",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload cover image",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MDgwMDEsImV4cCI6MTc0MDQxMTYwMX0.zAe4XfL41nvJvOtPNvvwuMAYqVa7LlIBQYhbJjCpsCM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/basem/Downloads/cropped_image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/coverPic/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"coverPic",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cover image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MTI2NDgsImV4cCI6MTc0MDQxNjI0OH0.R0-h3xgSv4kufeFqfKUsOrF38ZbEpEUy9-B0XX11v8g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/coverPic/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"coverPic",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add HR Employee",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MjYwMDIsImV4cCI6MTc0MDQyOTYwMn0.obXLjPKh1UKBw7HEUW4hX5QTCnWvENgi4uoz5eX4EEA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hrId\":\"67bb8042b6503193bef530bb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/pushHRs/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"pushHRs",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "jobs",
+			"item": [
+				{
+					"name": "add job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "user eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JiODA0MmI2NTAzMTkzYmVmNTMwYmIiLCJpYXQiOjE3NDA0MjY2NTAsImV4cCI6MTc0MDQzMDI1MH0.p-5RxbxsFX68hVGcw8zp7WMUlZdCiu7RQ5FHQNI6Z3c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"jobTitle\": \"frontEnd Developer\",\r\n  \"jobLocation\": \"onsite\",\r\n  \"workingTime\": \"full-time\",\r\n  \"seniorityLevel\": \"Mid-Level\",\r\n  \"jobDescription\": \"Develop and maintain backend services using Node.js.\",\r\n  \"technicalSkills\": [\"vue\", \"angular\", \"react\"],\r\n  \"softSkills\": [\"Teamwork\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/67bc5e2624675d89624c0c8f",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"67bc5e2624675d89624c0c8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update job",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MjE3MTEsImV4cCI6MTc0MDQyNTMxMX0.iWCTDQj29jhOSNQXH5ahZztzIvuf7fmREcK26r7rLgo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"jobTitle\": \"Node.js Backend Developer\",\r\n  \"jobLocation\": \"remotely\",\r\n  \"workingTime\": \"full-time\",\r\n  \"seniorityLevel\": \"Mid-Level\",\r\n  \"jobDescription\": \"Develop and maintain backend services using Node.js...\",\r\n  \"technicalSkills\": [\"Node.js\", \"Express\", \"MongoDB\",\"graphQl\"],\r\n  \"softSkills\": [\"Teamwork\", \"Communication\",\"hardWorker\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/67bcb53b2208f624cb706870",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"67bcb53b2208f624cb706870"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete job",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MjE3MTEsImV4cCI6MTc0MDQyNTMxMX0.iWCTDQj29jhOSNQXH5ahZztzIvuf7fmREcK26r7rLgo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/67bcb53b2208f624cb706870",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"67bcb53b2208f624cb706870"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all or specific job",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0NzQ1NjUsImV4cCI6MTc0MDQ3ODE2NX0.5NUfYyUT5sh_65A7ivMBk0mRs5Uha_WSj_adMVhHYQg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/67bc5e2624675d89624c0c8f/job/67bccdcb2d2fa3466c66fea7",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"67bc5e2624675d89624c0c8f",
+								"job",
+								"67bccdcb2d2fa3466c66fea7"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "companyName",
+									"value": "bm",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter job",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA0MzYxMjQsImV4cCI6MTc0MDQzOTcyNH0.wTc8ecEqvi6FG44Emo-ycphSzRM2RTPptSYmSOWONmw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/getJobsFilters?technicalSkills=graphQl",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"getJobsFilters"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "workingTime",
+									"value": "bm",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "jobLocation",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "seniorityLevel",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "jobTitle",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "technicalSkills",
+									"value": "graphQl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "application for job",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JhNTIxNTE1NDFmYWM4MWNkNTdhMzMiLCJpYXQiOjE3NDA1NjYxMTcsImV4cCI6MTc0MDU2OTcxN30.78k_u06rM8xWYGs3_QTxMUG5rP0ufey0vZGWoYwPLfg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/company/67bc5e2624675d89624c0c8f/job/67bccdcb2d2fa3466c66fea7/applications",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"company",
+								"67bc5e2624675d89624c0c8f",
+								"job",
+								"67bccdcb2d2fa3466c66fea7",
+								"applications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apply application for job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "user eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JkYTg4NzIyNjAyNzgyOWUzMjE4YmUiLCJpYXQiOjE3NDA0OTI2MTQsImV4cCI6MTc0MDQ5NjIxNH0.eQECveMmWXAVOaS7lUcvFChwoDhBy2jNggQmf1RVMx8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/C:/Users/basem/Downloads/small.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/67bccdcb2d2fa3466c66fea7/apply",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"67bccdcb2d2fa3466c66fea7",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accepting/Rejecting an Applicant",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "user eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JiODA0MmI2NTAzMTkzYmVmNTMwYmIiLCJpYXQiOjE3NDA1NjU4NTYsImV4cCI6MTc0MDU2OTQ1Nn0.k0zZOtcVi0DCiXNeF9oV43P-W2nZ_0shZrbCokpA-7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"accepted\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BE_EVENNODE_LIVE}}/job/67bccdcb2d2fa3466c66fea7/applications/67bddae42427b51d8a64c933/",
+							"host": [
+								"{{BE_EVENNODE_LIVE}}"
+							],
+							"path": [
+								"job",
+								"67bccdcb2d2fa3466c66fea7",
+								"applications",
+								"67bddae42427b51d8a64c933",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_sara7a",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "admin_Token",
+			"value": "admin eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzZhZjMwMGQ0MTNhODFiNmQ2ZTBlOTciLCJpc0xvZ2dlZCI6dHJ1ZSwiaWF0IjoxNzM1MDY4ODAzLCJleHAiOjE3MzUwNzI0MDN9.iRVCYNCGoD_5VD_1kFhDmJtx0IPbVEyjc5DIVf3kcEI"
+		},
+		{
+			"key": "BE_EVENNODE_LIVE",
+			"value": "http://jobsearchbasemmouner.eu-4.evennode.com",
+			"type": "default"
+		}
+	]
+}
